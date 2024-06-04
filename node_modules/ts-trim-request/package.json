@@ -1,0 +1,40 @@
+{
+  "name": "ts-trim-request",
+  "version": "1.0.1",
+  "description": "Typescript Express middleware to trim all incoming request object",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Johngtrs/ts-trim-request.git"
+  },
+  "keywords": [
+    "typescript",
+    "express",
+    "trim",
+    "sanitize",
+    "body",
+    "params",
+    "query",
+    "string"
+  ],
+  "author": "Jonhgtrs <vandal.jonathan@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Johngtrs/ts-trim-request/issues"
+  },
+  "homepage": "https://github.com/Johngtrs/ts-trim-request#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13"
+  }
+}
