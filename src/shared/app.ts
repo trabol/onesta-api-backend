@@ -31,7 +31,7 @@ class App {
     this.initializeSwagger();
   }
   private initializeSwagger() {
-    if(environments.APP_ENVIRONMENT=="development" || environments.APP_ENVIRONMENT=="dev"){
+    if(environments.APP_ENVIRONMENT=="DEV"){
       const swaggerDocument = swaggerJsdoc(environments.SWAGGER_SPEC);
       this.app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
     }
@@ -72,13 +72,7 @@ class App {
   }
   public async listen() {
     this.app.listen(this.port, () => {
-      LoggerApp.logger(
-        "info",
-        200,
-        `App listening on the port ${this.port}`,
-        uuidv1(),
-        true
-      );
+      console.log(`App listening on the port ${this.port}`);
     });
   }
 }

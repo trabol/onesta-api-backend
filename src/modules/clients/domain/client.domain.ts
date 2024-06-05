@@ -1,3 +1,5 @@
+import { IApiResponse } from "../../../shared/interface/api/format"
+
 export interface IclientDto {
   email: string
   nombre: string
@@ -12,11 +14,8 @@ export interface IclientSchema {
   created_at: Date
   updated_at: Date
 }
-
-export interface IclientResponse {
-  code: number
-  message: string
-  clients?: IclientSchema[]
+export interface IclientResponse extends IApiResponse {
+  data?: IclientSchema[]
 }
 
 export interface IclientDomain {
@@ -24,5 +23,5 @@ export interface IclientDomain {
 }
 
 export interface IclientRepository {
-  createMany(clientsDto: IclientDto[]): Promise<IclientSchema[]>
+  create(clientDto: IclientDto): Promise<IclientResponse>
 }

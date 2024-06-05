@@ -3,20 +3,12 @@ import { IclientResponse, IclientDto, IclientRepository, IclientDomain } from ".
 
 export default class CreateClientCase implements IclientDomain {
   private clientRepository: IclientRepository;
-  private response!: IclientResponse;
-  
+
   constructor(clientRepository: IclientRepository) {
     this.clientRepository = clientRepository;
   }
-  async createClients(clientsDto: IclientDto[]): Promise<IclientResponse> {
-
-    const clients = await this.clientRepository.createMany(clientsDto);
-
-    this.response.code = 200;
-    this.response.message = "success";
-    this.response.clients = clients;
-
-    return this.response;
+  async createClients(data: IclientDto[]): Promise<IclientResponse> {
+    return await this.clientRepository.create(data[0]);
   }
 
 }

@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:dev.db"
+}
+
+model Client {
+  id         Int      @id @default(autoincrement())
+  nombre     String
+  apellido   String
+  email      String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+
+  @@unique([email, nombre])
+  @@map("Clients")
+}
