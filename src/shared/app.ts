@@ -6,9 +6,10 @@ import trimRequest from "ts-trim-request";
 const { queryParser } = require('express-query-parser')
 import swaggerUi from "swagger-ui-express";
 import swaggerJsdoc from 'swagger-jsdoc';
-import { v1 as uuidv1 } from "uuid";
 
 import environments from "./environments"
+import { RequestHandler } from "express-serve-static-core";
+import { ParsedQs } from "qs";
 const os = require("os");
 const formData = require("express-form-data");
 const options = {
@@ -20,12 +21,10 @@ const options = {
 class App {
   public app: express.Application;
   public port: number;
-  public country: string;
 
-  constructor(routers, port, country?) {
+  constructor(routers: any[], port: number,) {
     this.app = express();
     this.port = port;
-    this.country = country;
     this.initializeMiddlewares();
     this.initializeRouters(routers);
     this.initializeSwagger();
@@ -43,16 +42,6 @@ class App {
 
     this.app.use(bodyParser.json({ limit: '50mb', type: 'application/json' }));
     this.app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-    this.app.use((err, req, res, next) => {
-      if (err) {
-        const apiError = {
-          code: 400,
-          message: "Bad request",
-        }
-        return res.status(apiError.code).json(apiError);
-      }
-      next();
-    });
 
     this.app.use(trimRequest.all);
     this.app.use(
@@ -65,8 +54,8 @@ class App {
       })
     )
   }
-  private initializeRouters(routers) {
-    routers.forEach((router) => {
+  private initializeRouters(routers: any[]) {
+    routers.forEach((router: { router: RequestHandler<{}, any, any, ParsedQs, Record<string, any>>; }) => {
       this.app.use("", router.router);
     });
   }
