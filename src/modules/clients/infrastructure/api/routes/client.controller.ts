@@ -12,7 +12,7 @@ export default class ClientController {
   constructor(clientRepository: IclientRepository) {
     this.createClientCase = new CreateClientCase(clientRepository);
   }
-  public async createClientController(body: IclientDto[]): Promise<IApiResponse> {
+  public async createClientController(body: IclientDto): Promise<IApiResponse> {
     return this.createClientCase.createClients(body);
   }
 }

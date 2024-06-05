@@ -1,7 +1,6 @@
 {
   "main": "server.js",
   "scripts": {
-    "rds:generate": "npx prisma generate",
     "tsc": "tsc",
     "dev": "nodemon -L src/server.ts",
     "start": "node dist/server.js",

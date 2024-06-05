@@ -6,6 +6,10 @@ export interface IclientDto {
   apellido: string
 }
 
+export interface IclientParams {
+  email: string
+}
+
 export interface IclientSchema {
   id: number
   email: string
@@ -19,9 +23,10 @@ export interface IclientResponse extends IApiResponse {
 }
 
 export interface IclientDomain {
-  createClients(clientsDto: IclientDto[]): Promise<IclientResponse>
+  createClients(clientsDto: IclientDto): Promise<IclientResponse>
 }
 
 export interface IclientRepository {
   create(clientDto: IclientDto): Promise<IclientResponse>
+  get(params: IclientParams): Promise<IclientResponse>
 }

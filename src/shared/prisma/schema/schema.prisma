@@ -16,6 +16,6 @@ model Client {
   updated_at DateTime @updatedAt
 
 
-  @@unique([email, nombre])
+  @@unique([email])
   @@map("Clients")
 }
