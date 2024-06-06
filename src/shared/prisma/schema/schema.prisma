@@ -20,7 +20,5 @@ model Report {
   fruta_cosechada     String
   variedad_cosechada  String
   created_at          DateTime @default(now())
-
-  @@unique([fruta_cosechada])
   @@map("Reports")
 }
