@@ -17,6 +17,8 @@ npm run build
 npm start
 ```
 
+cambiar archivo .env.example.text a .env
+
 ## Documentación postman: 
 
 importa en postman desde .src/onesta-api-backend/postman/onesta-api.postman_collection.json
@@ -26,6 +28,7 @@ importa en postman desde .src/onesta-api-backend/postman/onesta-api.postman_coll
 Mtodo disponibles   
 - Crear registro
 
+``` 
 curl --location 'http://localhost:8080/v1/report' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -40,10 +43,12 @@ curl --location 'http://localhost:8080/v1/report' \
     "fruta_cosechada": "hola1",
     "variedad_cosechada": "hola"
 }' 
+``` 
 
 - Subir csv de ejemplo 
-
-curl --location 'http://localhost:8080/v1/    report/upload-csv' \--form 'files=@"/home/icar/Escritorio/    cosechas.csv"'
+``` 
+curl --location 'http://localhost:8080/v1/report/upload-csv' \--form 'files=@"/home/Escritorio/    cosechas.csv"'
+``` 
 
 
 
