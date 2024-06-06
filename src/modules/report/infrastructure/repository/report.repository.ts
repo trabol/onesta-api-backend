@@ -15,6 +15,7 @@ export default class ReportRepository implements IreportRepository {
   constructor() {
     this.prisma = new PrismaClient({ errorFormat: 'minimal' })
   }
+
   public async get(params: IreportParams): Promise<IreportResponse> {
     try {
       const report = await this.prisma.report.findMany({ where: params });
@@ -28,7 +29,6 @@ export default class ReportRepository implements IreportRepository {
       return ErrorCodes(err)
     }
   }
-
   public async create(data: IreportDto): Promise<IreportResponse> {
     try {
       const report = await this.prisma.report.create({data});
@@ -42,5 +42,4 @@ export default class ReportRepository implements IreportRepository {
       return ErrorCodes(err)
     }
   }
-
 }

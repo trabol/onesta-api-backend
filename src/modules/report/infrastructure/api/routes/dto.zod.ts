@@ -1,4 +1,4 @@
-import { z, } from 'zod';
+import { AnyZodObject, z, } from 'zod';
 export const reportSchema = z
   .object({
     body: z
@@ -39,3 +39,11 @@ export const reportSchema = z
   });
 
 export type reportTypeZod = z.infer<typeof reportSchema>["body"];
+
+export const FileSchema: AnyZodObject = z.object({
+  files: z.object({
+    file: z.object({})
+  })
+});
+
+export type FileTypeZod = z.infer<typeof FileSchema>["files"];
