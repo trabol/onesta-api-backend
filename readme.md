@@ -43,13 +43,19 @@ curl --location 'http://localhost:8080/v1/report' \
     "fruta_cosechada": "hola1",
     "variedad_cosechada": "hola"
 }' 
-``` 
+```
+ejemplo postman
+
+![image](https://github.com/trabol/onesta-api-backend/assets/14164927/90a9d76b-63e2-4d74-a50b-96822bd6cb43)
 
 - Subir csv de ejemplo 
 ``` 
 curl --location 'http://localhost:8080/v1/report/upload-csv' \--form 'files=@"/home/Escritorio/    cosechas.csv"'
-``` 
+```
 
+ejemplo postman
+
+![image](https://github.com/trabol/onesta-api-backend/assets/14164927/d236f973-2615-4c8b-907a-f5a6d7b74747)
 
 
 
