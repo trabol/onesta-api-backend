@@ -7,24 +7,20 @@ datasource db {
   url      = "file:dev.db"
 }
 
-model Client {
-  id         Int      @id @default(autoincrement())
-  nombre     String
-  apellido   String
-  email      String
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+model Report {
+  id                  Int      @id @default(autoincrement())
+  mail_agricultor     String
+  nombre_agricultor   String
+  apellido_agricultor String
+  mail_cliente        String
+  nombre_cliente      String
+  apellido_cliente    String
+  nombre_campo        String
+  ubicacion_campo     String
+  fruta_cosechada     String
+  variedad_cosechada  String
+  created_at          DateTime @default(now())
 
-  @@unique([email])
-  @@map("Clients")
-}
-
-model Harvest {
-  id         Int      @id @default(autoincrement())
-  nombre     String
-  direccion  String
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-
-  @@map("Harvests")
+  @@unique([fruta_cosechada])
+  @@map("Reports")
 }
