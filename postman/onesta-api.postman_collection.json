@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "4f454742-9598-47a3-ad88-fccb1038ef56",
+		"name": "onesta-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33697825"
+	},
+	"item": [
+		{
+			"name": "report",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mail_agricultor\": \"mail_agricultor1@hola.cl\",\n    \"nombre_agricultor\": \"hola\",\n    \"apellido_agricultor\": \"hola\",\n    \"mail_cliente\": \"mail_cliente1@hola.cl\",\n    \"nombre_cliente\": \"hola\",\n    \"apellido_cliente\": \"hola\",\n    \"nombre_campo\": \"hola1\",\n    \"ubicacion_campo\": \"hola1\",\n    \"fruta_cosechada\": \"hola1\",\n    \"variedad_cosechada\": \"hola\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/report",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"report"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload-csv",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/home/icar/Escritorio/cosechas.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/report/upload-csv",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"report",
+								"upload-csv"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

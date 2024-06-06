@@ -16,6 +16,7 @@ export default class FilesIntegration implements IFilesRepository {
     try {
       const response: IreportResponse = { code: 200, message: "success", data: [] }
       const stream = fs.createReadStream(filePath).pipe(csvParser({
+        strict: true,
         separator: ',',
         newline: '\n',
         skipLines: 1,

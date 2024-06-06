@@ -1,7 +1,6 @@
 import path from "path";
 
 const environments = {
-  PRISMA_LOG:process.env.PRISMA_LOG,
   APP_ENVIRONMENT:"DEV",
   APP_VERSION: "v1",
   APP_PORT: Number(process.env.APP_PORT),
