@@ -4,10 +4,6 @@ import cors from 'cors';
 import express from "express";
 import trimRequest from "ts-trim-request";
 const { queryParser } = require('express-query-parser')
-import swaggerUi from "swagger-ui-express";
-import swaggerJsdoc from 'swagger-jsdoc';
-
-import environments from "./environments"
 import { RequestHandler } from "express-serve-static-core";
 import { ParsedQs } from "qs";
 const os = require("os");
@@ -27,14 +23,8 @@ class App {
     this.port = port;
     this.initializeMiddlewares();
     this.initializeRouters(routers);
-    this.initializeSwagger();
   }
-  private initializeSwagger() {
-    if(environments.APP_ENVIRONMENT=="DEV"){
-      const swaggerDocument = swaggerJsdoc(environments.SWAGGER_SPEC);
-      this.app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-    }
-  }
+  
   private initializeMiddlewares() {
     this.app.use(cors());
     this.app.use(compression());
